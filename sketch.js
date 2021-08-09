@@ -66,6 +66,7 @@ function draw() {
       // Go to end state if sword touching enemy
       if(monsterGroup.isTouching(knife)){
         gameState=END;
+        gameOverSound.play()
         
         //add gameover sound here
         
@@ -96,7 +97,7 @@ function Monster(){
     monster.addAnimation("moving", monsterImage);
     monster.y=Math.round(random(100,550));
     //update below give line of code for increase monsterGroup speed by 10
-    monster.velocityX = -8;
+    monster.velocityX = -(8+(score/10));
     monster.setLifetime=50;
     
     monsterGroup.add(monster);
@@ -122,7 +123,7 @@ function fruits(){
       fruit.x=0;
       
      //update below give line of code for increase fruitGroup speed by 4
-      fruit.velocityX= 7;
+      fruit.velocityX= +(7+(score/10));
       }
     }
     
